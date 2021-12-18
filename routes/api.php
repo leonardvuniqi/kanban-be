@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/projects', [ProjectsController::class, 'index']);
+Route::post('/projects', [ProjectsController::class, 'store']);
+Route::get('/projects/{id}', [ProjectsController::class, 'show']);
